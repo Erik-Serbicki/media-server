@@ -12,7 +12,11 @@ services:
     volumes:
       - ${JELLYFIN_CONFIG}:/config
       - ${JELLYFIN_CACHE}:/cache
-      - ${MEDIA_LOCATION}:/media:rx
+      - type: bind
+        source: ${JELLYFIN_MEDIA}
+        target: /media
+        bind:
+          propogation: rshared
     devices:
       - /dev/dri:/dev/dri
     restart: 'unless-stopped'
