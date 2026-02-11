@@ -13,8 +13,6 @@ services:
       - ${MEDIA_LOCATION}:/media
     devices:
       - /dev/dri:/dev/dri
-      - /dev/dri/renderD128:/dev/dri/renderD128
-      - /dev/dri/card0:/dev/dri/card0
     restart: 'unless-stopped'
     environment:
       - TZ=${TIMEZONE}
