@@ -8,8 +8,8 @@ services:
     ports:
       - 8096:8096
     volumes:
-      - ./jellyfin-config:/config
-      - ./jellyfin-cache:/cache
+      - ${JELLYFIN_CONFIG}:/config
+      - ${JELLYFIN_CACHE}:/cache
       - ${MEDIA_LOCATION}:/media
     devices:
       - /dev/dri:/dev/dri
