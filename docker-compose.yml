@@ -16,7 +16,7 @@ services:
         source: ${MEDIA_LOCATION}
         target: /media
         bind:
-          propogation: rshared
+          propagation: rshared
     devices:
       - /dev/dri:/dev/dri
     restart: 'unless-stopped'
