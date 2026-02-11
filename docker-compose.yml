@@ -13,7 +13,7 @@ services:
       - ${JELLYFIN_CONFIG}:/config
       - ${JELLYFIN_CACHE}:/cache
       - type: bind
-        source: ${JELLYFIN_MEDIA}
+        source: ${MEDIA_LOCATION}
         target: /media
         bind:
           propogation: rshared
