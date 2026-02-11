@@ -9,6 +9,7 @@ services:
     dns: 192.168.5.76
     ports:
       - 8096:8096
+      - 8920:8920
     volumes:
       - ${JELLYFIN_CONFIG}:/config
       - ${JELLYFIN_CACHE}:/cache
