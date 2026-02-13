@@ -17,6 +17,8 @@ services:
       - /dev/dri:/dev/dri
     restart: 'unless-stopped'
     environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
       - TZ=${TIMEZONE}
     labels:
       - "traefik.enable=true"
