@@ -3,7 +3,7 @@ services:
   jellyfin:
     image: jellyfin/jellyfin:latest
     container_name: jellyfin
-    user: 1000:1000
+    user: ${PUID}:${PGID}
     networks:
       - media-network
     dns: 192.168.5.76
@@ -17,8 +17,6 @@ services:
       - /dev/dri:/dev/dri
     restart: 'unless-stopped'
     environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
       - TZ=${TIMEZONE}
     labels:
       - "traefik.enable=true"
