@@ -36,7 +36,7 @@ services:
     restart: unless-stopped
     user: ${PUID}:${PGID}
     volumes:
-      - ${JELLYFIN_CONFIG}/jellyseer:/app/config
+      - ${JELLYSEERR_CONFIG}:/app/config
     ports:
       - ${JELLYSEER_PORT}:5055
     environment:
