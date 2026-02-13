@@ -30,9 +30,9 @@ services:
       - "traefik.http.routers.jellyfin-secure.tls=true"
       - "traefik.http.routers.jellyfin-secure.tls.certresolver=letsencrypt"
 
-  jellyseer:
-    image: ghcr.io/fallenbagel/jellyseer:latest
-    container_name: jellyseer
+  jellyseerr:
+    image: ghcr.io/fallenbagel/jellyseerr:latest
+    container_name: jellyseerr
     restart: unless-stopped
     user: ${PUID}:${PGID}
     volumes:
