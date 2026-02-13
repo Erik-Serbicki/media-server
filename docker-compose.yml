@@ -29,7 +29,6 @@ services:
       - "traefik.http.routers.jellyfin-secure.tls=true"
       - "traefik.http.routers.jellyfin-secure.tls.certresolver=letsencrypt"
 
-
 networks:
   media-network:
     external: true
