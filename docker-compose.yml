@@ -8,7 +8,7 @@ services:
       - media-network
     dns: 192.168.5.76
     ports:
-      - 8096:8096
+      - ${JELLYFIN_PORT}:8096
     volumes:
       - ${JELLYFIN_CONFIG}:/config
       - ${JELLYFIN_CACHE}:/cache
@@ -29,6 +29,20 @@ services:
       - "traefik.http.routers.jellyfin-secure.rule=Host(`jellyfin.local.serbicki.com`)"
       - "traefik.http.routers.jellyfin-secure.tls=true"
       - "traefik.http.routers.jellyfin-secure.tls.certresolver=letsencrypt"
+
+  jellyseer:
+    image: fallenbagel/jellyseer:latest
+    container_name: jellyseer
+    restart: unless-stopped
+    user: ${PUID}:${PGID}
+    volumes:
+      - ${JELLYFIN_CONFIG}/jellyseer:/app/config
+    ports:
+      - ${JELLYSEER_PORT}:5055
+    environment:
+      - TZ=${TIMEZONE}
+    networks:
+      - media-network
 
 networks:
   media-network:
