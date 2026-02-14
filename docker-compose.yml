@@ -34,7 +34,6 @@ services:
     image: ghcr.io/seerr-team/seerr:latest
     container_name: jellyseerr
     restart: unless-stopped
-    user: ${PUID}:${PGID}
     volumes:
       - ${JELLYSEERR_CONFIG}:/app/config
     ports:
