@@ -38,7 +38,7 @@ services:
     volumes:
       - ${JELLYSEERR_CONFIG}:/app/config
     ports:
-      - ${JELLYSEER_PORT}:5055
+      - ${JELLYSEERR_PORT}:5055
     environment:
       - TZ=${TIMEZONE}
     networks:
