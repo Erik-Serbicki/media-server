@@ -19,16 +19,17 @@ services:
     environment:
       - TZ=${TIMEZONE}
       - UMASK=002
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.jellyfin.entrypoints=http"
-      - "traefik.http.routers.jellyfin.rule=Host(`jellyfin.local.serbicki.com`)"
-      - "traefik.http.middlewares.traefik-https-redirect.redirectscheme.scheme=https"
-      - "traefik.http.routers.jellyfin.middlewares=traefik-https-redirect"
-      - "traefik.http.routers.jellyfin-secure.entrypoints=https"
-      - "traefik.http.routers.jellyfin-secure.rule=Host(`jellyfin.local.serbicki.com`)"
-      - "traefik.http.routers.jellyfin-secure.tls=true"
-      - "traefik.http.routers.jellyfin-secure.tls.certresolver=letsencrypt"
+    # legacy: media services run on a separate server, not behind traefik
+    # labels:
+    #   - "traefik.enable=true"
+    #   - "traefik.http.routers.jellyfin.entrypoints=http"
+    #   - "traefik.http.routers.jellyfin.rule=Host(`jellyfin.local.serbicki.com`)"
+    #   - "traefik.http.middlewares.traefik-https-redirect.redirectscheme.scheme=https"
+    #   - "traefik.http.routers.jellyfin.middlewares=traefik-https-redirect"
+    #   - "traefik.http.routers.jellyfin-secure.entrypoints=https"
+    #   - "traefik.http.routers.jellyfin-secure.rule=Host(`jellyfin.local.serbicki.com`)"
+    #   - "traefik.http.routers.jellyfin-secure.tls=true"
+    #   - "traefik.http.routers.jellyfin-secure.tls.certresolver=letsencrypt"
 
   jellyseerr:
     image: ghcr.io/seerr-team/seerr:latest
